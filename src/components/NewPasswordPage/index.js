@@ -8,24 +8,39 @@ class NewPasswordPage extends Component {
     websiteName: '',
     userName: '',
     password: '',
+    passwordsList: [],
   }
 
   onAddBottom = event => {
     event.preventDefault()
     const {websiteName, userName, password} = this.state
+    const newList = {
+      id: v4(),
+      websitename: websiteName,
+      passwords: password,
+      username: userName,
+    }
+    this.setState(prevState => ({
+      passwordsList: [...prevState.passwordsList, newList],
+      websiteName: '',
+      userName: '',
+      password: '',
+    }))
+  }
 
-    onChangeWebsite = event => {
-      this.setState({websiteName: event.target.value})
-    }
+  onChangeWebsite = event => {
+    this.setState({websiteName: event.target.value})
+  }
 
-    onChangeUsername = event => {
-      this.setState({userName: event.target.value})
-    }
-    onChangePassword = event => {
-      this.setState({password: event.target.value})
-    }
-  
-    render() {
+  onChangeUsername = event => {
+    this.setState({userName: event.target.value})
+  }
+
+  onChangePassword = event => {
+    this.setState({password: event.target.value})
+  }
+
+  render() {
     const {websiteName, userName, password} = this.state
 
     return (
@@ -75,10 +90,10 @@ class NewPasswordPage extends Component {
           <button type="submit"> Add </button>
         </div>
         <div>
-            <img
-                src="https://assets.ccbp.in/frontend/react-js/password-manager-sm-img.png"
-                alt="Password Manager"
-            />
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/password-manager-sm-img.png"
+            alt="Password Manager"
+          />
         </div>
       </div>
     )
