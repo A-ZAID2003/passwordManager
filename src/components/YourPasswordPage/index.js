@@ -4,6 +4,15 @@ import './index.css'
 
 const YourPasswordPage = props => {
   const {passwordsList} = props
+
+  deletePassItem = passwordId => {
+    const {passwordsList} = this.props
+
+    this.setState({
+      passwordsList: passwordsList.filter(pass => password.id !== passwordId),
+    })
+  }
+
   return (
     <div>
       <div>
@@ -18,7 +27,11 @@ const YourPasswordPage = props => {
       </div>
 
       {passwordsList.map(eachpassword => (
-        <PasswordsList key={eachpassword.id} passwordDetails={eachpassword} />
+        <PasswordsList
+          key={eachpassword.id}
+          passwordDetails={eachpassword}
+          deletePassItem={this.deletePassItem}
+        />
       ))}
 
       <div>

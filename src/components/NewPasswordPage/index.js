@@ -15,7 +15,7 @@ class NewPasswordPage extends Component {
     event.preventDefault()
     const {websiteName, userName, password} = this.state
     const newList = {
-      id: v4(),
+      id: uuidv4(),
       websitename: websiteName,
       passwords: password,
       username: userName,
@@ -57,6 +57,7 @@ class NewPasswordPage extends Component {
                 <input
                   className="website"
                   placeholder="Enter Website"
+                  type="text"
                   onChange={this.onChangeWebsite}
                   value={websiteName}
                 />
@@ -69,6 +70,7 @@ class NewPasswordPage extends Component {
                 <input
                   className="username"
                   placeholder="Enter Username"
+                  type="text"
                   onChange={this.onChangeUsername}
                   value={userName}
                 />
@@ -81,6 +83,7 @@ class NewPasswordPage extends Component {
                 <input
                   className="password"
                   placeholder="Enter Password"
+                  type="text"
                   onChange={this.onChangePassword}
                   value={password}
                 />

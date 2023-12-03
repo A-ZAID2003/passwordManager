@@ -2,7 +2,12 @@ import './index.css'
 
 const PasswordsList = props => {
   const {details} = props
-  const {websiteName, userName, password} = details
+  const {id, websiteName, userName, password} = details
+
+  const onDeletePassItem = () => {
+    const {deletePassItem} = props
+    deletePassItem(id)
+  }
 
   return (
     <ul>
@@ -13,11 +18,12 @@ const PasswordsList = props => {
           <p>{password}</p>
         </div>
         <div>
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/password-manager-delete-img.png"
-            alt="delete"
-            onClick={this.onClickDelete()}
-          />
+          <button onClick={onDeletePassItem} type="button">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/password-manager-delete-img.png"
+              alt="delete"
+            />
+          </button>
         </div>
       </li>
     </ul>
