@@ -1,6 +1,5 @@
 import './index.css'
 
-import YourPasswordPage from '../YourPasswordPage'
 import NewPasswordPage from '../NewPasswordPage'
 
 const MainPage = () => (
@@ -12,7 +11,6 @@ const MainPage = () => (
       />
     </div>
     <NewPasswordPage />
-    <YourPasswordPage />
   </div>
 )
 

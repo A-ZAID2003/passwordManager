@@ -1,6 +1,9 @@
 import {Component} from 'react'
 import {v4 as uuidv4} from 'uuid'
 
+import PasswordsList from '../PasswordsList'
+import Header from '../Header'
+
 import './index.css'
 
 class NewPasswordPage extends Component {
@@ -9,6 +12,28 @@ class NewPasswordPage extends Component {
     userName: '',
     password: '',
     passwordsList: [],
+  }
+
+  renderSavedPasswords = () => {
+    const {passwordsList} = this.state
+
+    return (
+      <div>
+        <Header />
+        <hr />
+        <div>
+          <input type="check-box" />
+          <p>show passwords</p>
+        </div>
+        {passwordsList.map(eachPassword => (
+          <PasswordsList
+            key={eachPassword.id}
+            passwordDetails={eachPassword}
+            deletePassItem={this.deletePassItem}
+          />
+        ))}
+      </div>
+    )
   }
 
   onAddBottom = event => {
@@ -98,6 +123,8 @@ class NewPasswordPage extends Component {
             alt="Password Manager"
           />
         </div>
+
+        <div>{this.renderSavedPasswords()}</div>
       </div>
     )
   }
