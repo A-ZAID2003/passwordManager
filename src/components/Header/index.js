@@ -9,11 +9,10 @@ class Header extends Component {
 
   render() {
     const {count} = this.state
-
     return (
       <div>
         <h1>
-          Your Passwords <span>{count}</span>{' '}
+          Your Passwords <span>{count}</span>
         </h1>
 
         <div>

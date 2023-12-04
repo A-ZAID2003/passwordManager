@@ -14,16 +14,33 @@ class NewPasswordPage extends Component {
     passwordsList: [],
   }
 
-  renderSavedPasswords = () => {
-    const {passwordsList} = this.state
-
-    return (
+  noPasswordsView = () => {
+    <div>
+      <Header />
+      <hr />
       <div>
+        <input type="checkbox" id="showpass" value="showpass" />
+        <label htmlFor="showpass">Show passwords</label>
+      </div>
+      <div>
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png "
+          alt="no passwords"
+        />
+        <p>No Passwords</p>
+      </div>
+      ))
+    </div>
+  }
+
+
+  passwordView = () => {
+     <div>
         <Header />
         <hr />
         <div>
-          <input type="check-box" />
-          <p>show passwords</p>
+          <input type="checkbox" id="showpass" value="showpass" />
+          <label htmlFor="showpass">Show passwords</label>
         </div>
         {passwordsList.map(eachPassword => (
           <PasswordsList
@@ -33,20 +50,31 @@ class NewPasswordPage extends Component {
           />
         ))}
       </div>
+  }
+
+  renderSavedPasswords = () => {
+    const {passwordsList} = this.state
+    const passwordLength = passwordsList.Length
+
+    return (
+        
+       {
+         passwordLength > 0 ? {this.passwordView()} : {this.noPasswordsView()}
+        }
     )
   }
 
   onAddBottom = event => {
     event.preventDefault()
     const {websiteName, userName, password} = this.state
-    const newList = {
+    const newItem = {
       id: uuidv4(),
-      websitename: websiteName,
+      websiteame: websiteName,
       passwords: password,
       username: userName,
     }
     this.setState(prevState => ({
-      passwordsList: [...prevState.passwordsList, newList],
+      passwordsList: [...prevState.passwordsList, newItem],
       websiteName: '',
       userName: '',
       password: '',
@@ -108,23 +136,23 @@ class NewPasswordPage extends Component {
                 <input
                   className="password"
                   placeholder="Enter Password"
-                  type="text"
+                  type="password"
                   onChange={this.onChangePassword}
                   value={password}
                 />
               </div>
+              <button type="submit"> Add </button>
             </form>
           </div>
-          <button type="submit"> Add </button>
-        </div>
-        <div>
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/password-manager-sm-img.png"
-            alt="Password Manager"
-          />
-        </div>
+          <div>
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/password-manager-sm-img.png"
+              alt="Password Manager"
+            />
+          </div>
 
-        <div>{this.renderSavedPasswords()}</div>
+          <div>{this.renderSavedPasswords()}</div>
+        </div>
       </div>
     )
   }
