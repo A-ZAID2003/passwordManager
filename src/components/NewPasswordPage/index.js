@@ -14,8 +14,8 @@ class NewPasswordPage extends Component {
     passwordsList: [],
   }
 
-  noPasswordsView = () => {
-    ;<div>
+  noPasswordsView = () => (
+    <div>
       <Header />
       <hr />
       <div>
@@ -30,7 +30,7 @@ class NewPasswordPage extends Component {
         <p>No Passwords</p>
       </div>
     </div>
-  }
+  )
 
   passwordView = () => {
     const {passwordsList} = this.state
