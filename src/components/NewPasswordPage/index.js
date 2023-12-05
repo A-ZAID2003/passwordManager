@@ -15,7 +15,7 @@ class NewPasswordPage extends Component {
   }
 
   noPasswordsView = () => {
-    <div>
+    ;<div>
       <Header />
       <hr />
       <div>
@@ -29,13 +29,14 @@ class NewPasswordPage extends Component {
         />
         <p>No Passwords</p>
       </div>
-      ))
     </div>
   }
 
-
   passwordView = () => {
-     <div>
+    const {passwordsList} = this.state
+
+    return (
+      <div>
         <Header />
         <hr />
         <div>
@@ -50,18 +51,14 @@ class NewPasswordPage extends Component {
           />
         ))}
       </div>
+    )
   }
 
   renderSavedPasswords = () => {
     const {passwordsList} = this.state
     const passwordLength = passwordsList.Length
 
-    return (
-        
-       {
-         passwordLength > 0 ? {this.passwordView()} : {this.noPasswordsView()}
-        }
-    )
+    return passwordLength > 0 ? this.passwordView() : this.noPasswordsView()
   }
 
   onAddBottom = event => {
