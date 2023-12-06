@@ -56,7 +56,7 @@ class NewPasswordPage extends Component {
 
   renderSavedPasswords = () => {
     const {passwordsList} = this.state
-    const passwordLength = passwordsList.Length
+    const passwordLength = passwordsList.length
 
     return passwordLength > 0 ? this.passwordView() : this.noPasswordsView()
   }
@@ -66,7 +66,7 @@ class NewPasswordPage extends Component {
     const {websiteName, userName, password} = this.state
     const newItem = {
       id: uuidv4(),
-      websiteame: websiteName,
+      websitename: websiteName,
       passwords: password,
       username: userName,
     }

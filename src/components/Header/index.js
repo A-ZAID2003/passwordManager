@@ -12,7 +12,7 @@ class Header extends Component {
     return (
       <div>
         <h1>
-          Your Passwords<span>{count}</span>
+          Your Passwords <p>{count}</p>
         </h1>
 
         <div>
