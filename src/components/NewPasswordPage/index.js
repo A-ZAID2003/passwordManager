@@ -32,6 +32,12 @@ class NewPasswordPage extends Component {
     </div>
   )
 
+  deletePassItem = id => {
+    const {passwordsList} = this.state
+    const filteredDataList = passwordsList.filter(each => each.id !== id)
+    this.setState({passwordsList: filteredDataList})
+  }
+
   passwordView = () => {
     const {passwordsList} = this.state
 
@@ -46,7 +52,7 @@ class NewPasswordPage extends Component {
         {passwordsList.map(eachPassword => (
           <PasswordsList
             key={eachPassword.id}
-            passwordDetails={eachPassword}
+            itemDetails={eachPassword}
             deletePassItem={this.deletePassItem}
           />
         ))}
@@ -138,7 +144,9 @@ class NewPasswordPage extends Component {
                   value={password}
                 />
               </div>
-              <button type="submit"> Add </button>
+              <button type="submit" data-testid="delete">
+                Add
+              </button>
             </form>
           </div>
           <div>

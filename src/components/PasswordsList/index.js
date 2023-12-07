@@ -1,11 +1,11 @@
 import './index.css'
 
 const PasswordsList = props => {
-  const {itemDetails} = props
+  const {itemDetails, deletePassItem} = props
   const {id, websiteName, userName, password} = itemDetails
 
   const onDeletePassItem = () => {
-    const {deletePassItem} = props
+    // const {deletePassItem} = props
     deletePassItem(id)
   }
 
