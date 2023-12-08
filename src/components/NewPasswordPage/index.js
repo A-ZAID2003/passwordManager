@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import {Component} from 'react'
 import {v4 as uuidv4} from 'uuid'
 
@@ -43,13 +44,13 @@ class NewPasswordPage extends Component {
 
     return (
       <div>
-        <Header />
+        <Header count={passwordsList.length} />
         <hr />
         <div>
           <input type="checkbox" id="showpass" value="showpass" />
           <label htmlFor="showpass">Show passwords</label>
         </div>
-        {passwordsList.map(eachPassword => (
+        {searchResults.map(eachPassword => (
           <PasswordsList
             key={eachPassword.id}
             itemDetails={eachPassword}

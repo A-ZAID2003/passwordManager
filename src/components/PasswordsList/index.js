@@ -2,10 +2,9 @@ import './index.css'
 
 const PasswordsList = props => {
   const {itemDetails, deletePassItem} = props
-  const {id, websiteName, userName, password} = itemDetails
+  const {id, websitename, username, passwords} = itemDetails
 
   const onDeletePassItem = () => {
-    // const {deletePassItem} = props
     deletePassItem(id)
   }
 
@@ -13,9 +12,9 @@ const PasswordsList = props => {
     <ul>
       <li>
         <div>
-          <p>{websiteName}</p>
-          <p>{userName}</p>
-          <p>{password}</p>
+          <p>{websitename}</p>
+          <p>{username}</p>
+          <p>{passwords}</p>
         </div>
         <div>
           <button onClick={onDeletePassItem} type="button">
