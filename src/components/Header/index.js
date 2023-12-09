@@ -3,18 +3,8 @@ import {Component} from 'react'
 import './index.css'
 
 class Header extends Component {
-  state = {searchInput: ''}
-
-  onChangeSearchInput = event => {
-    this.setState({searchInput: event.target.value})
-  }
-
   render() {
     const {count, passwordsList} = this.props
-    const {searchInput} = this.state
-    const searchResults = passwordsList.filter(eachpass =>
-      eachpass.name.includes(searchInput),
-    )
 
     return (
       <div>
